@@ -2,7 +2,6 @@ from odoo import models, fields, api, _
 from datetime import datetime
 
 class childTemplate(models.Model):
-
     _name = "custom.child"
     _rec_name = "name"
     # _inherits = {'res.partner': 'partner_id'}
