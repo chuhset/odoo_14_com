@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_child,custom_child,Charity.model_custom_child,base.group_user,1,1,1,1
+access_profile_picture,profile_picture,Charity.model_profile_picture,base.group_user,1,1,1,1
+access_custom_progress,custom_progress,Charity.model_custom_progress,base.group_user,1,1,1,1
+access_charity_menu,charity_menu,Charity.model_charity_menu,base.group_user,1,1,1,1

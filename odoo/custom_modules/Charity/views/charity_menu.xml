@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <menuitem name="Charity" id="charity_id" sequence="5" web_icon=""/>
+<!--        <menuitem name="Profile Picture" id="profile_id" parent="Charity.charity_id" action="profileRegister_action"></menuitem>-->
+<!--        <menuitem name="Sponsors" id="sponsor_id" parent="Charity.charity_id" action="SponsorRegister_action"></menuitem>-->
+        <menuitem name="Children" id="child_id" parent="Charity.charity_id" action="children_action"></menuitem>
+        <!--<menuitem name="Profile Picture" id="profile_id" parent="Charity.charity_id" action="profileRegister_action"></menuitem>-->
+<!--        <menuitem name="Sponsorship" id="sponsorship_id" parent="Charity.charity_id"></menuitem>-->
+<!--        <menuitem name="Sponsorship" id="sponsorship" parent="Charity.sponsorship_id" action="SponsorshipRegister_action" sequence="2"></menuitem>-->
+<!--        <menuitem name="Configure Sponsorship Type" id="sponsorshiptype_id" parent="sponsorship_id" action="SponsorshipType_action" sequence="1"></menuitem>-->
+        <!--<menuitem name="Progress Info" id="progress_id" parent="Charity.charity_id" action="progressRegister_action"  web_icon="Charity,static/image/yoma.png"></menuitem>-->
+    </data>
+</odoo>

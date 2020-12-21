@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="progress_view_template">
+              <field name="name">progress form view template</field>
+              <field name="model">custom.progress</field>
+              <field name="arch" type="xml">
+                  <form>
+                       <sheet>
+                            <group col="4" colspan="4">
+                                <field name="date"></field>
+                                <field name="child_id" invisible="1"></field>
+                                <field name="progress_info"></field>
+                            </group>
+                        </sheet>
+                  </form>
+              </field>
+         </record>
+
+         <record model="ir.ui.view" id="progress_tree_template">
+            <field name="name">Progress tree</field>
+            <field name="model">custom.progress</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"></field>
+                    <field name="child_id"></field>
+                    <field name="progress_info"></field>
+                </tree>
+            </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="progressRegister_action">
+            <field name="name">Progress</field>
+            <field name="res_model">custom.progress</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('child_id','=', active_id)]</field>
+            <field name="context">{'child_id': active_id}</field>
+            <!--<field name="target">new</field>-->
+        </record>
+
+<!--        <record id="view_progress_filter" model="ir.ui.view">-->
+<!--            <field name="name">Progress</field>-->
+<!--            <field name="model">custom.progress</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Search Profile">-->
+<!--                    &lt;!&ndash;<field name="name" string="Contract"/>&ndash;&gt;-->
+<!--                    <field name="date"/>-->
+<!--                    <field name="child_id"/>-->
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="Child" icon="terp-partner" domain="[]" context="{'group_by':'child_id'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--         </record>-->
+
+        <!--<menuitem name="Progress Info" id="progress_id" parent="Charity.charity_id" action="progressRegister_action"></menuitem>-->
+    </data>
+</odoo>

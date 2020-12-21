@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+        <template id="report_child">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row" style="padding-bottom:20px;">
+                            <div class="text-center">
+                                <h1 style="font-family:'Times New Roman';font-weight:bold;font-size:56px;color:#339966;">
+                                    The Andrew Clark Trust
+                                </h1>
+                            </div>
+                        </div>
+                        <t t-foreach="docs" t-as="o">
+
+                            <div class="row" style="margin-bottom:10px;">
+                                <table style="margin:0; padding:0; width:100%;">
+                                    <tr>
+                                        <td class="col-xs-6" style="vertical-align: middle; margin:0; padding:0;">
+    <!--                                        <img style="width:100%;" t-att-src="'data:image/*;base64,%s' % o.image"/>-->
+                                            <img style="width:100%;" t-att-src="image_data_uri(o.image)"/>
+                                        </td>
+                                        <td class="col-xs-6 text-center" style="background-color:#ffffff; vertical-align: middle; margin:0; padding:0;">
+                                            <span style="font-size:35px;color:black;" t-field="o.name"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div t-if="o.progress_info" class="row" style="margin-top:25px;">
+                                <span style="color:#339966;font-size:30px;">History</span><br/>
+                                <p t-field="o.progress_info" style="margin-top:10px;"/>
+                                <!--<dl style="margin-top:30px;margin-left:35px;">-->
+                                <!--<t t-foreach="o.progress" t-as="p">-->
+                                <!--<div style="page-break-inside: avoid;">-->
+                                <!--<dt style="color:#339966;">-->
+                                <!--<span class="fa fa-calendar fa-lg"/>-->
+                                <!--<span style="padding-left:20px;font-weight:bold; font-size:17px;"-->
+                                <!--t-field="p.date" t-field-options='{"format": "MMMM yyyy"}'/>-->
+                                <!--</dt>-->
+                                <!--<dd>-->
+                                <!--<p style="padding-left:40px;padding-top:15px; font-size:17px;"-->
+                                <!--t-field="p.progress_info"/>-->
+                                <!--</dd>-->
+                                <!--</div>-->
+                                <!--</t>-->
+                                <!--</dl>-->
+                            </div>
+                        </t>
+                    </div>
+                    <div class="footer">
+                        <div class="row text-center" style="padding-top:30px;font-size:15px;color:#339966;">
+                            <div class="col-xs-11">
+                                Registered Charity
+                                <span class="fas fa-circle" style="font-size:7px;"/>
+                                Registered in England
+                                <span class="fas fa-circle" style="font-size:7px;"/>
+                                Registration Number: 1104134
+                                <br/>
+                                Beech View,8 Lowthorpe Lane, Nafferton,
+                                East Yorkshire, YO25 4JX, England
+                                <br/>
+                                Tel: 01377 256462
+                                <span class="fas fa-circle" style="font-size:7px;"/>
+                                Website: www.myanmaraid.org.uk
+                                <span class="fas fa-circle" style="font-size:7px;"/>
+                                email: info@myanmar-aid.org
+                            </div>
+
+                            <div class="col-xs-1" style="color:black; font-size:12px;">
+                                <table>
+                                    <tr>
+                                        <th colspan="3">PAGE</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="page"/>
+                                        </td>
+                                        <td>of</td>
+                                        <td>
+                                            <span class="topage"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+

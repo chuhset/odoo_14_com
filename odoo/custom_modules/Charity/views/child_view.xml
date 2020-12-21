@@ -1,0 +1,121 @@
+<odoo>
+    <data>
+            <!--<record id="act_image" model="ir.actions.act_window">-->
+                <!--<field name="name">Profile Images</field>-->
+                <!--<field name="type">ir.actions.act_window</field>-->
+                <!--<field name="res_model">profile.picture</field>-->
+                <!--<field name="view_type">form</field>-->
+                <!--<field name="view_mode">tree,form</field>-->
+                <!--<field name="domain">[('child_id','=', active_id)]</field>-->
+                <!--<field name="context">{'child_id': active_id}-->
+                <!--</field>-->
+            <!--</record>-->
+
+
+         <record model="ir.ui.view" id="child_view_template">
+              <field name="name">child form view template</field>
+              <field name="model">custom.child</field>
+              <field name="arch" type="xml">
+                  <form>
+                        <header>
+                            <button name="attend_school" type="object" states="draft"
+                                string="Attending School" class="oe_highlight"/>
+                            <button name="dropout" type="object" string="Dropped Out" states="attending_school" class="oe_highlight"/>
+                             <button name="disqualified" type="object" string="Disqualified" states="attending_school" class="oe_highlight"/>
+                            <button name="finished" type="object" string="Finished" states="attending_school" class="oe_highlight"/>
+                            <field name="state" widget="statusbar" statusbar_visible="draft,attending_school,droppedOut,disqualified,finished" />
+                        </header>
+                       <!--<link rel="stylesheet" href="/Charity/static/src/css/image.css"></link>-->
+                       <sheet>
+
+                           <group col="2">
+                               <group style="float:left">
+                                    <field name="image" widget="image" options="{'minWidth': 100}" nolable="1"></field>
+                               </group>
+
+                                <!--<field name="state" invisible="1"></field>-->
+                               <group>
+                                   <group col="1" style="width:100%">
+                                       <field name="name" required="1"></field>
+                                       <field name="dob"></field>
+                                       <field name="progress_info"/>
+                                       <field name="active" invisible="1"/>
+                                   </group>
+
+                                    <!--<field name="domain">[('child_id','=', active_id.name)]</field>-->
+
+
+<!--                                   <notebook style="width:100%">-->
+
+<!--                                       <page string="Photos">-->
+<!--                                           <field name="photos">-->
+<!--                                               <tree>-->
+<!--&lt;!&ndash;                                                   <field name="select_profile"></field>&ndash;&gt;-->
+<!--                                                   <field name="date"></field>-->
+<!--&lt;!&ndash;                                                   <field name="photo" widget='image' options="{'size':[100,100]}"></field>&ndash;&gt;-->
+<!--                                                   <field name="remark"></field>-->
+<!--                                               </tree>-->
+<!--                                               <form>-->
+<!--                                                  <sheet>-->
+<!--                                                      <group>-->
+<!--                                                          <field name="date"></field>-->
+<!--                                                          <field name="remark"></field>-->
+<!--                                                      </group>-->
+<!--&lt;!&ndash;                                                      <group col="2">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          <group style="width:60%">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                              <field name="photo" widget='image'></field>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          </group>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          <group col="1" style="width:40%">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                              <field name="select_profile"></field>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                              <field name="date"></field>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                              <field name="remark"></field>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          </group>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                      </group>&ndash;&gt;-->
+
+<!--                                                  </sheet>-->
+<!--                                               </form>-->
+<!--                                           </field>-->
+<!--                                       </page>-->
+<!--                                   </notebook>-->
+                               </group>
+                           </group>
+                       </sheet>
+                  </form>
+              </field>
+         </record>
+
+         <record model="ir.ui.view" id="child_tree_template">
+            <field name="name">child tree</field>
+            <field name="model">custom.child</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"></field>
+                    <field name="dob"></field>
+                </tree>
+            </field>
+         </record>
+
+
+
+<!--        <record id="view_contract_filter" model="ir.ui.view">-->
+<!--            <field name="name">child.filter</field>-->
+<!--            <field name="model">custom.child</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Search Child">-->
+<!--                    &lt;!&ndash;<field name="name" string="Contract"/>&ndash;&gt;-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="dob" widget="date"/>-->
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="Name" context="{'group_by':'name'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record model="ir.actions.act_window" id="children_action">
+            <field name="name">Child</field>
+            <field name="res_model">custom.child</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="sponsor_view_template">
+              <field name="name">sponsor form view template</field>
+            <field name="model">sponsor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <!--<table>-->
+                            <!--<tr>-->
+                                <!--<strong>Name</strong><td style="padding-right:25px;"><field name="name" required="1" /></td>-->
+                                <!--<strong>Surname</strong><td style="padding-right:25px;"><field name="surname"/></td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+
+                        <group col="4" colspan="4">
+                            <field name="name" required="1"></field>
+                            <field name="email_address_1"></field>
+                            <field name="surname"></field>
+                            <field name="email_address_2"></field>
+                            <field name="address"></field>
+                        </group>
+                        <notebook>
+                            <page string="Sponsorship">
+                                <field name="sponsorships">
+                                    <tree>
+                                        <field name="started_date"></field>
+                                        <field name ="child_id"></field>
+                                        <field name="amount"/>
+                                        <field name="active_sponsor"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="2">
+                                                <group>
+                                                    <field name ="child_id"></field>
+                                                    <field name="started_date"></field>
+                                                </group>
+                                                <group>
+                                                    <field name="amount"/>
+                                                    <field name="payment_frequency"/>
+                                                    <field name="payment_method"/>
+                                                    <field name="gift_aid"/>
+
+                                                </group>
+
+
+                                            </group>
+                                        </sheet>
+
+                                    </form>
+                                </field>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+         </record>
+
+         <record model="ir.ui.view" id="sponsor_tree_template">
+            <field name="name">sponsor tree</field>
+            <field name="model">sponsor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"></field>
+                    <field name="surname"></field>
+                    <field name="address"></field>
+                    <field name="email_address_1"></field>
+                    <field name="email_address_2"></field>
+                </tree>
+            </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="SponsorRegister_action">
+            <field name="name">Sponsor</field>
+            <field name="res_model">sponsor</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!--<menuitem name="Charity" id="charity_id" sequence="5" />-->
+        <!--<menuitem name="Sponsors" id="sponsor_id" parent="Charity.charity_id" action="SponsorRegister_action"></menuitem>-->
+    </data>
+</odoo>

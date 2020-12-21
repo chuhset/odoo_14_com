@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="sponsorship_view_template">
+              <field name="name">sponsorship form view template</field>
+            <field name="model">sponsorship</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="sponsor_id"></field>
+                            <field name="child_id"></field>
+                            <field name = "amount"></field>
+                            <field name="started_date"></field>
+                            <field name="payment_frequency"></field>
+                            <field name="payment_method"></field>
+                            <field name="gift_aid"></field>
+                            <field name="active_sponsor"/>
+                            <field name="type" widget="many2many_tags"/>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+         </record>
+
+         <record model="ir.ui.view" id="sponsorship_tree_template">
+            <field name="name">sponsorship tree</field>
+            <field name="model">sponsorship</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sponsor_id"></field>
+                    <field name="child_id"></field>
+                    <field name ="amount"></field>
+                    <field name="started_date"></field>
+                    <field name="payment_frequency"></field>
+                    <field name="payment_method"></field>
+                    <field name="gift_aid"></field>
+                    <field name="active_sponsor"/>
+                    <field name="type" widget="many2many_tags"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="SponsorshipRegister_action">
+            <field name="name">Sponsorship</field>
+            <field name="res_model">sponsorship</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

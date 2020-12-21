@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="action_project_milestone_invoicing_view" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Project Milestone Invoicing</field>
+            <field name="res_model">report.charity</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first milestone</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="action_project_milestone_invoicing_tree">
+            <field name="name">Project Milestone Invoicing</field>
+            <field name="model">report.charity</field>
+            <field name="arch" type="xml">
+                <tree string="Charity Report" create="false" edit="false">
+                    <field name='child'/>
+                    <!--<field name='profile_id' />-->
+                    <field name='payment' />
+                    <field name="sponsor"></field>
+                    <field name='info' />
+                    <field name="image"></field>
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="action_project_milestone_invoicing_form">
+            <field name="name">Project Milestone Invoicing</field>
+            <field name="model">report.charity</field>
+            <field name="arch" type="xml">
+                <form string="Charity Report">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name='child'/>
+                            <field name='payment' />
+                            <field name="sponsor"></field>
+                            <field name="image"/>
+                        </group>
+                        <group>
+                            <div>Progress Information</div>
+                            <field name="info" nolabel="1"></field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem name="Charity Report" action="action_project_milestone_invoicing_view" id="menu_project_milestone_invoicing_act" parent="Charity.charity_id"/>
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+
+        <record id="paperformat_charity" model="report.paperformat">
+            <field name="name">Charity Report Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">12</field>
+            <field name="margin_bottom">25</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">15</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">12</field>
+            <field name="dpi">90</field>
+        </record>
+
+<!--        <record id="Progress_Report" model="ir.actions.report">-->
+<!--            <field name="name">Child Report</field>-->
+<!--            <field name="model">custom.child</field>-->
+<!--            <field name="report_type">qweb-pdf</field>-->
+<!--            <field name="report_name">Charity.report_child</field>-->
+<!--            <field name="report_file">Charity.report_child</field>-->
+<!--            <field name="print_report_name">(object.name)</field>-->
+<!--            <field name="binding_model_id" ref="model_custom_child"/>-->
+<!--            <field name="binding_type">report</field>-->
+<!--        </record>-->
+        <report
+                id="Progress_Report"
+                model="custom.child"
+                string="Child Report"
+                report_type="qweb-pdf"
+                name="Charity.report_child"
+                file="Charity.report_child"
+                paperformat="Charity.paperformat_charity"/>
+
+        <record id="Charity.Progress_Report" model="ir.actions.report">
+            <field name="print_report_name">(object.name)</field>
+<!--            <field name="print_report_name"><![CDATA[''.join(object.get_child_report_name())]]></field>-->
+        </record>
+
+        <!--<report-->
+        <!--id="Sponsorship Report"-->
+        <!--model="sponsorship"-->
+        <!--string="Sponsorship Report"-->
+        <!--report_type="qweb-pdf"-->
+        <!--name="Charity.sponsorship_report_view"-->
+        <!--file="Charity.sponsorship_report_view"-->
+        <!--paperformat="Charity.paperformat_charity"/>-->
+        <!--/>-->
+    </data>
+</odoo>

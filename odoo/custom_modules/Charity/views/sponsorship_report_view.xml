@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+
+        <template id="sponsorship_report_view">
+            <t t-call="Charity.custom_layout">
+                <t t-set="data_report_margin_top" t-value="45"/>
+                <t t-set="data_report_header_spacing" t-value="40"/>
+                 <div class="header">
+                     <!--<h1 style="margin-top:20px">The Andrew Clark Trust</h1>-->
+                    <div class="row">
+                        <div class="col-xs-3">
+                         The Andrew Clark Trust
+                        <!-- All your custom code here -->
+                        </div>
+                    </div>
+                 </div>
+
+
+                <div class="page">
+                    <table style="border:1px solid black;width:100%">
+                        <th style="border:1px solid black;">Sponsor Name</th>
+                        <th style="border:1px solid black;">Sponsor Surname</th>
+                        <th style="border:1px solid black;">Child Name</th>
+                        <th style="border:1px solid black;">Payment</th>
+                        <th style="border:1px solid black;">Sponsorship Type</th>
+                        <t t-foreach="docs" t-as="o">
+                            <tr>
+                                <td style="border:1px solid black;"><span t-field="o.sponsor_id.name"></span></td>
+                                <td style="border:1px solid black;"><span t-field="o.sponsor_id.surname"></span></td>
+                                <td style="border:1px solid black;"><span t-field="o.child_id"></span></td>
+                                <td style="border:1px solid black;"><span t-field="o.payment_frequency"></span></td>
+
+                                <td>
+                                    <t t-foreach="o.type" t-as="l">
+                                        <span t-field="l.type"/>
+                                    </t>
+                                </td>
+
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+
+                <div class="footer">
+                    <div class="row">
+                        Registered Charity  Registered in England  Registration Number: 1104134
+                        Beech View, 8 Lowthorpe Lane, Nafferton, East Yorkshire, YO25 4JX, England
+                        Tel: 01377 256462  Website: www.myanmar-aid.org  email: info@myanmar-aid.org
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+    <!--<template id="report_view">-->
+        <!--<t t-call="web.html_container">-->
+            <!--<t t-foreach="docs" t-as="o">-->
+                <!--<t t-call="account.report_overdue_document" t-lang="o.lang"/>-->
+            <!--</t>-->
+        <!--</t>-->
+    <!--</template>-->
+    </data>
+</odoo>
+

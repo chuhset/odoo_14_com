@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="profile_view_template">
+              <field name="name">profile form view template</field>
+              <field name="model">profile.picture</field>
+              <field name="arch" type="xml">
+                  <form>
+                       <sheet>
+                           <group>
+<!--                               <group style="width:50%">-->
+<!--                                   <field name="photo" widget='darkroom' options="{'minWidth': 100}"></field>-->
+<!--                                   <field name="child_id"/>-->
+<!--                               </group>-->
+                                    <field name="select_profile"></field>
+                                    <field name="date"></field>
+                                    <field name="remark"></field>
+                            </group>
+                        </sheet>
+                  </form>
+              </field>
+         </record>
+
+         <record model="ir.ui.view" id="profile_tree_template">
+            <field name="name">profile tree</field>
+            <field name="model">profile.picture</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"></field>
+                    <field name="child_id"></field>
+                    <field name="remark"></field>
+                </tree>
+            </field>
+         </record>
+<!--         <record id="view_contract_filter" model="ir.ui.view">-->
+<!--            <field name="name">profile.filter</field>-->
+<!--            <field name="model">profile.picture</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Search Profile">-->
+<!--                    &lt;!&ndash;<field name="name" string="Contract"/>&ndash;&gt;-->
+<!--                    <field name="date"/>-->
+<!--                    <field name="child_id"/>-->
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="Child" icon="terp-partner" domain="[]" context="{'group_by':'child_id'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--         </record>-->
+
+        <record model="ir.actions.act_window" id="profileRegister_action">
+            <field name="name">Profile</field>
+            <field name="res_model">profile.picture</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>
